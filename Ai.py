@@ -2,12 +2,15 @@ import os
 import openai
 import pyttsx3
 
+#input 
 a = input(print("Enter title to create article"))
 
+#open api key 
 os.environ["OPENAI_API_KEY"] = "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"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-
+#Writing file
+#AI Writer function (Don't change any values)
 def call():
     response = openai.Completion.create(
       model="text-davinci-003",
@@ -27,6 +30,7 @@ def call():
 
 a = call()
 
+#Reading file
 tts = pyttsx3.init()
 file = open("Summary.txt", 'r')
 r = file.read()
